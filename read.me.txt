@@ -1,0 +1,10 @@
+Pembagian Jobdesc:
+
+Ansa: Login,Register,Home, Browser
+Mahen: Adopt & Offer.
+
+Minggu awal-awal: Fungsional dulu (back-end)
+Minggu 1 (setelah WFP)
+
+Pertemuan: Kelarin Back-End
+Weekend: Front-End
