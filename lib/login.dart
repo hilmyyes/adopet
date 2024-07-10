@@ -42,6 +42,8 @@ class _LoginState extends State<Login> {
       if (json['result'] == 'success') {
         final prefs = await SharedPreferences.getInstance();
         prefs.setString("user_name", _user_name);
+        prefs.setString("user_id", json['data'][0]['id'].toString());
+        // print(json['data'][0]['id'].toString());
         setState(() {
           error_login = "Insert your username and password";
         });
