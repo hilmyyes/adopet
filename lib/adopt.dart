@@ -8,14 +8,15 @@ import 'package:http/http.dart' as http;
 
 
   List<String> status = [
-  'Sedang Propose',
-  'Propose Ditolak',
-  'Propose Disetujui'
+  'waiting',
+  'rejected',
+  'approved'
 ];
 
 class Adopt extends StatefulWidget {
-  String username;
-  Adopt({super.key, required this.username});
+
+
+  Adopt({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -81,7 +82,7 @@ class AdoptState extends State<Adopt> {
                   style: const TextStyle(fontSize: 25),
                 ),
               ),
-              statusVal == "Sedang Propose"
+              statusVal == "waiting"
                   ? Padding(
                       padding: EdgeInsets.all(10),
                       child: Container(
@@ -106,7 +107,7 @@ class AdoptState extends State<Adopt> {
                         ),
                       ),
                     )
-                  : statusVal == "Propose Ditolak"
+                  : statusVal == "rejected"
                       ? Padding(
                           padding: EdgeInsets.all(10),
                           child: Container(
@@ -131,7 +132,7 @@ class AdoptState extends State<Adopt> {
                             ),
                           ),
                         )
-                      : statusVal == "Propose Disetujui"
+                      : statusVal == "approved"
                           ? Padding(
                               padding: EdgeInsets.all(10),
                               child: Container(
@@ -174,10 +175,12 @@ class AdoptState extends State<Adopt> {
   Future<String> fetchData() async {
     final response = await http.post(
         Uri.parse("https://ubaya.me/flutter/160421043/adopet/adopt.php"),
-                body: {'user_id': '2',
-                        'status': 'waiting'});
+                body: {'user_id': users_id.toString(),
+                        'status': statusVal.toString()});
     if (response.statusCode == 200) {
-      // print(response.body);
+
+      print(response.body);
+      print("status : ${statusVal.toString()} || user_id : ${users_id.toString()}");
       return response.body;
     } else {
       throw Exception('Failed to read API');
@@ -185,6 +188,7 @@ class AdoptState extends State<Adopt> {
   }
 
   Widget AdoptPetList(data) {
+    list_pet = [];
     Map json = jsonDecode(data);
     for (var pets in json['data']) {
       Pet pet = Pet.fromJSON(pets);
