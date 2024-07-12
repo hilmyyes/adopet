@@ -30,7 +30,9 @@ class MainApp extends StatelessWidget {
         'home': (context) => Home(),
         'browse': (context) => Browse(),
         'offer': (context) => Offer(),
-        'adopt': (context) => Adopt(),
+        'adopt': (context) => Adopt(
+          username: active_user
+        ),
         'login': (context) => LoginForm(),
       },
       home: const HomePage(title: 'Home Page'),
