@@ -131,7 +131,7 @@ class BrowseState extends State<Browse> {
                           ),
                         );
                       },
-                      child: Text('Adopt'),
+                      child: Text('Purpose'),
                     ),
                   ),
                 ],
