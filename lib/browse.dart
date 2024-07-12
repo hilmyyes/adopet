@@ -99,7 +99,7 @@ class BrowseState extends State<Browse> {
                     fit: BoxFit.cover,
                   ),
                   ListTile(
-                    leading: Icon(Icons.movie, size: 30),
+                    leading: Icon(Icons.pets, size: 30),
                     title: GestureDetector(
                         child: Text(list_pet[index].pet_name),
                         onTap: () {
