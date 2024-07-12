@@ -4,15 +4,15 @@ import 'package:adopet_uas/login.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-String _user_name = "";
-String _user_password = "";
+String username = "";
+String password = "";
 String error_signup = "Insert your username and password";
 
 class SignUpForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SIGN UP',
+      title: 'Register',
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
@@ -32,7 +32,7 @@ class _SignUpState extends State<SignUp> {
   void doSignup() async {
     final response = await http.post(
       Uri.parse("https://ubaya.me/flutter/160421043/adopet/register.php"),
-      body: {'user_name': _user_name, 'user_password': _user_password},
+      body: {'username': username, 'password': password},
     );
 
     if (response.statusCode == 200) {
@@ -75,7 +75,7 @@ class _SignUpState extends State<SignUp> {
               padding: EdgeInsets.all(10),
               child: TextField(
                 onChanged: (v) {
-                  _user_name = v;
+                  username = v;
                 },
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -88,7 +88,7 @@ class _SignUpState extends State<SignUp> {
               padding: EdgeInsets.all(10),
               child: TextField(
                 onChanged: (value) {
-                  _user_password = value;
+                  password = value;
                 },
                 obscureText: true,
                 decoration: InputDecoration(
@@ -113,11 +113,11 @@ class _SignUpState extends State<SignUp> {
                   onPressed: () {
                     doSignup();
                   },
-                   style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.purple,
-                        foregroundColor: Colors.white,
-                        textStyle: TextStyle(fontSize: 25),
-                      ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.purple,
+                    foregroundColor: Colors.white,
+                    textStyle: TextStyle(fontSize: 25),
+                  ),
                   child: Text(
                     'DAFTAR',
                     style: TextStyle(color: Colors.white, fontSize: 25),
@@ -138,10 +138,10 @@ class _SignUpState extends State<SignUp> {
                         MaterialPageRoute(builder: (context) => LoginForm()));
                   },
                   style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.purple,
-                        foregroundColor: Colors.white,
-                        textStyle: TextStyle(fontSize: 25),
-                      ),
+                    backgroundColor: Colors.purple,
+                    foregroundColor: Colors.white,
+                    textStyle: TextStyle(fontSize: 25),
+                  ),
                   child: Text(
                     'LOGIN',
                     style: TextStyle(color: Colors.white, fontSize: 25),

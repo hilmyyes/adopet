@@ -1,11 +1,8 @@
-2024/07/12-18:14:09.118 5354 Reusing MANIFEST C:\Users\Hilmy\AppData\Local\Temp\flutter_tools.45d7dca7\flutter_tools_chrome_device.7b11ebca\Default\Site Characteristics Database/MANIFEST-000001
-2024/07/12-18:14:09.118 5354 Recovering log #6
-2024/07/12-18:14:09.119 5354 Level-0 table #8: started
-2024/07/12-18:14:09.127 5354 Level-0 table #8: 196 bytes OK
-2024/07/12-18:14:09.128 5354 Recovering log #10
-2024/07/12-18:14:09.128 5354 Reusing old log C:\Users\Hilmy\AppData\Local\Temp\flutter_tools.45d7dca7\flutter_tools_chrome_device.7b11ebca\Default\Site Characteristics Database/000010.log 
-2024/07/12-18:14:09.129 5354 Delete type=0 #3
-2024/07/12-18:14:09.130 5354 Delete type=0 #6
-2024/07/12-18:14:09.130 5354 Delete type=2 #11
-2024/07/12-18:14:09.130 5354 Delete type=2 #13
-2024/07/12-18:14:09.130 5354 Delete type=2 #14
+2024/07/12-19:35:33.200 29f0 Reusing MANIFEST C:\Users\Hilmy\AppData\Local\Temp\flutter_tools.e3c660b9\flutter_tools_chrome_device.7b22c88c\Default\Site Characteristics Database/MANIFEST-000001
+2024/07/12-19:35:33.201 29f0 Recovering log #10
+2024/07/12-19:35:33.202 29f0 Reusing old log C:\Users\Hilmy\AppData\Local\Temp\flutter_tools.e3c660b9\flutter_tools_chrome_device.7b22c88c\Default\Site Characteristics Database/000010.log 
+2024/07/12-19:35:33.202 29f0 Delete type=0 #3
+2024/07/12-19:35:33.202 29f0 Delete type=0 #6
+2024/07/12-19:35:33.202 29f0 Delete type=2 #11
+2024/07/12-19:35:33.203 29f0 Delete type=2 #13
+2024/07/12-19:35:33.203 29f0 Delete type=2 #14
