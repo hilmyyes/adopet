@@ -63,7 +63,7 @@ class _NewOfferState extends State<NewOffer> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("New Popular Movie"),
+        title: Text("New Offer"),
       ),
       body: Form(
         key: _formKey,

@@ -35,7 +35,7 @@ class OfferState extends State<Offer> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("New Offer"),
+          title: Text("Offer"),
         ),
         body: ListView(
           children: <Widget>[
@@ -49,7 +49,7 @@ class OfferState extends State<Offer> {
                   ),
                 );
               },
-              child: Text('Adopt'),
+              child: Text('+ Add New Offer'),
             ),
             Container(
                 height: MediaQuery.of(context).size.height * 1,
@@ -102,10 +102,12 @@ class OfferState extends State<Offer> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Image.network(
+                   AspectRatio(
+                      aspectRatio: 4 / 3,
+                  child: Image.network(
                     list_pet[index].pet_image,
                     fit: BoxFit.cover,
-                  ),
+                  )),
                   ListTile(
                     leading: Icon(Icons.movie, size: 30),
                     title: GestureDetector(
@@ -135,7 +137,7 @@ class OfferState extends State<Offer> {
                           ),
                         );
                       },
-                      child: Text('Adopt'),
+                      child: Text('Decision'),
                     ),
                   ),
                   Padding(

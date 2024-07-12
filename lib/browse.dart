@@ -94,10 +94,12 @@ class BrowseState extends State<Browse> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Image.network(
-                    list_pet[index].pet_image,
-                    fit: BoxFit.cover,
-                  ),
+                  AspectRatio(
+                      aspectRatio: 4 / 3,
+                      child: Image.network(
+                        list_pet[index].pet_image,
+                        fit: BoxFit.cover,
+                      )),
                   ListTile(
                     leading: Icon(Icons.pets, size: 30),
                     title: GestureDetector(
@@ -106,8 +108,10 @@ class BrowseState extends State<Browse> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  Propose(petId : list_pet[index].pet_id, petImage : list_pet[index].pet_image, petName : list_pet[index].pet_name),
+                              builder: (context) => Propose(
+                                  petId: list_pet[index].pet_id,
+                                  petImage: list_pet[index].pet_image,
+                                  petName: list_pet[index].pet_name),
                             ),
                           );
                         }),
@@ -120,8 +124,10 @@ class BrowseState extends State<Browse> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                Propose(petId : list_pet[index].pet_id, petImage : list_pet[index].pet_image, petName : list_pet[index].pet_name),
+                            builder: (context) => Propose(
+                                petId: list_pet[index].pet_id,
+                                petImage: list_pet[index].pet_image,
+                                petName: list_pet[index].pet_name),
                           ),
                         );
                       },

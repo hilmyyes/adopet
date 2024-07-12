@@ -22,7 +22,7 @@ class _DecisionState extends State<Decision> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Browse"),
+          title: Text("Decision"),
         ),
         body: ListView(
           children: <Widget>[
