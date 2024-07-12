@@ -113,11 +113,13 @@ class _SignUpState extends State<SignUp> {
                   onPressed: () {
                     doSignup();
                   },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Color(0xd0bcff)),
-                  ),
+                   style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.purple,
+                        foregroundColor: Colors.white,
+                        textStyle: TextStyle(fontSize: 25),
+                      ),
                   child: Text(
-                    'SIGN UP',
+                    'DAFTAR',
                     style: TextStyle(color: Colors.white, fontSize: 25),
                   ),
                 ),
@@ -135,9 +137,11 @@ class _SignUpState extends State<SignUp> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => LoginForm()));
                   },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Color(0xd0bcff)),
-                  ),
+                  style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.purple,
+                        foregroundColor: Colors.white,
+                        textStyle: TextStyle(fontSize: 25),
+                      ),
                   child: Text(
                     'LOGIN',
                     style: TextStyle(color: Colors.white, fontSize: 25),

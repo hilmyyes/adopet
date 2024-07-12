@@ -64,6 +64,8 @@ class _HomePageState extends State<HomePage> {
               UserAccountsDrawerHeader(
                 accountName: Text(active_user),
                 accountEmail: Text(active_user),
+                currentAccountPicture: CircleAvatar(backgroundImage: NetworkImage("https://i.pravatar.cc/150")),
+
               ),
               ListTile(
                 title: new Text("Browse Pet"),

@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 
 String _user_name = "";
 String _user_password = "";
-String error_login = "Insert your username and password";
+String error_login = "Masukan Username dan Password";
 
 class LoginForm extends StatelessWidget {
   @override
@@ -43,14 +43,13 @@ class _LoginState extends State<Login> {
         final prefs = await SharedPreferences.getInstance();
         prefs.setString("user_name", _user_name);
         prefs.setString("user_id", json['data'][0]['id'].toString());
-        // print(json['data'][0]['id'].toString());
         setState(() {
-          error_login = "Insert your username and password";
+          error_login = "Masukan username dan passwordmu";
         });
         main();
       } else {
         setState(() {
-          error_login = "Incorrect username or password";
+          error_login = "username atau password tidak valid";
         });
       }
     } else {
@@ -107,48 +106,61 @@ class _LoginState extends State<Login> {
               padding: EdgeInsets.all(10),
               child: Text(error_login),
             ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: Container(
-                height: 50,
-                width: 300,
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                child: ElevatedButton(
-                  onPressed: () {
-                    doLogin();
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Color(0xd0bcff)),
-                  ),
-                  child: Text(
-                    'LOGIN',
-                    style: TextStyle(color: Colors.white, fontSize: 25),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: Container(
-                height: 50,
-                width: 300,
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SignUpForm()));
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Color(0xd0bcff)),
-                  ),
-                  child: Text(
-                    'SIGN UP',
-                    style: TextStyle(color: Colors.white, fontSize: 25),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment
+                  .center, // Pastikan tombol berada di tengah secara vertikal
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Container(
+                    height: 50,
+                    width: 300,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        doLogin();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.purple,
+                        foregroundColor: Colors.white,
+                        textStyle: TextStyle(fontSize: 25),
+                      ),
+                      child: Text(
+                        'LOGIN',
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Container(
+                    height: 50,
+                    width: 300,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignUpForm()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.purple,
+                        foregroundColor: Colors.white,
+                        textStyle: TextStyle(fontSize: 25),
+                      ),
+                      child: Text(
+                        'REGISTER',
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

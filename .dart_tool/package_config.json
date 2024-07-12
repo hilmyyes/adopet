@@ -122,6 +122,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "google_fonts",
+      "rootUri": "file:///C:/Users/Hilmy/AppData/Local/Pub/Cache/hosted/pub.dev/google_fonts-6.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "http",
       "rootUri": "file:///C:/Users/Hilmy/AppData/Local/Pub/Cache/hosted/pub.dev/http-1.2.1",
       "packageUri": "lib/",
@@ -428,7 +434,7 @@
       "languageVersion": "3.3"
     }
   ],
-  "generated": "2024-07-12T11:13:34.932943Z",
+  "generated": "2024-07-12T12:04:58.478649Z",
   "generator": "pub",
   "generatorVersion": "3.4.3",
   "flutterRoot": "file:///C:/Users/Hilmy/flutter",
