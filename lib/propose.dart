@@ -90,14 +90,14 @@ class _ProposeState extends State<Propose> {
             ),
             SizedBox(height: 8),
             Text(
-              'Ini gk tau di isi apa',
+              'Alasan kamu mengadopsi ini: ',
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 16),
             TextField(
               controller: _descriptionController,
               decoration: InputDecoration(
-                labelText: 'Description',
+                labelText: 'Alasan',
                 border: OutlineInputBorder(),
               ),
             ),

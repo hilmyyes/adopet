@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:adopet_uas/adopt.dart';
 import 'package:adopet_uas/class/pet.dart';
 import 'package:adopet_uas/decision.dart';
 import 'package:adopet_uas/editOffer.dart';
@@ -43,10 +44,7 @@ class OfferState extends State<Offer> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        NewOffer()
-                  ),
+                  MaterialPageRoute(builder: (context) => NewOffer()),
                 );
               },
               child: Text('+ Add New Offer'),
@@ -86,6 +84,7 @@ class OfferState extends State<Offer> {
   }
 
   Widget AdoptPetList(data) {
+    list_pet = [];
     Map json = jsonDecode(data);
     for (var pets in json['data']) {
       Pet pet = Pet.fromJSON(pets);
@@ -102,58 +101,60 @@ class OfferState extends State<Offer> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                   AspectRatio(
+                  AspectRatio(
                       aspectRatio: 4 / 3,
-                  child: Image.network(
-                    list_pet[index].pet_image,
-                    fit: BoxFit.cover,
-                  )),
+                      child: Image.network(
+                        list_pet[index].pet_image,
+                        fit: BoxFit.cover,
+                      )),
                   ListTile(
-                    leading: Icon(Icons.movie, size: 30),
+                    leading: Icon(Icons.pets, size: 30),
                     title: GestureDetector(
-                        child: Text(list_pet[index].pet_name),
-                        onTap: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => Propose(
-                          //         petId: list_pet[index].pet_id,
-                          //         petImage: list_pet[index].pet_image,
-                          //         petName: list_pet[index].pet_name),
-                          //   ),
-                          // );
-                        }),
+                        child: Text(list_pet[index].pet_name), onTap: () {}),
                     subtitle: Text(list_pet[index].pet_description),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                Decision(petId: list_pet[index].pet_id),
+                  Column(
+                    children: [
+                      if (list_pet[index].pet_username == 'waiting')
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Decision(petId: list_pet[index].pet_id),
+                                ),
+                              );
+                            },
+                            child: Text('Decision'),
                           ),
-                        );
-                      },
-                      child: Text('Decision'),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                EditOffer(petId: list_pet[index].pet_id),
-                          ),
-                        );
-                      },
-                      child: Text('Edit'),
-                    ),
+                        ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    EditOffer(petId: list_pet[index].pet_id),
+                              ),
+                            );
+                          },
+                          child: Text('Edit'),
+                        ),
+                      ),
+
+
+                      if (list_pet[index].pet_username != 'waiting')
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child:
+                              Text('Telah diadopsi oleh: ' + list_pet[index].pet_username.toString()),
+                        ),
+                    ],
                   ),
                 ],
               ));

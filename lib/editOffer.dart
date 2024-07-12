@@ -108,7 +108,7 @@ class _EditOfferState extends State<EditOffer> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("New Popular Movie"),
+        title: Text("Edit Offer"),
       ),
       body: Form(
         key: _formKey,
